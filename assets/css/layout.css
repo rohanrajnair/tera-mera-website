@@ -1,0 +1,361 @@
+/* Layout Styles */
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-dark) 100%);
+    overflow: hidden;
+}
+
+.hero-panels {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    z-index: 1;
+}
+
+.hero-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.hero-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.3s ease;
+}
+
+.hero-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.2) 0%,
+        rgba(0, 0, 0, 0.1) 50%,
+        rgba(0, 0, 0, 0.2) 100%
+    );
+    z-index: 1;
+}
+
+.hero-panel:not([style*="background-image"]) {
+    background: linear-gradient(135deg, var(--teal-primary) 0%, var(--teal-dark) 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
+    z-index: 2;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-pattern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: none;
+    background-repeat: repeat;
+    background-position: center;
+    opacity: 0.15;
+    animation: patternFloat 25s ease-in-out infinite;
+    z-index: 3;
+    filter: brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(638%) hue-rotate(359deg) brightness(103%) contrast(107%);
+}
+
+.hero-content {
+    text-align: center;
+    color: var(--white);
+    z-index: 4;
+    position: relative;
+    padding-bottom: 80px;
+    margin-top: -40px;
+}
+
+.hero-logo {
+    position: relative;
+    padding: 2rem;
+}
+
+.hero-logo-image {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-svg {
+    width: 400px;
+    height: auto;
+    max-width: 100%;
+    filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5)) brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(638%) hue-rotate(359deg) brightness(103%) contrast(107%);
+    transition: transform 0.3s ease;
+}
+
+.logo-svg:hover {
+    transform: scale(1.02);
+}
+
+.hero-tagline {
+    font-family: var(--font-brand);
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold-primary);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.4);
+    filter: brightness(1.1) contrast(1.2);
+}
+
+.hero-subtitle {
+    font-family: var(--font-bollywood);
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+    color: var(--gold-primary);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.4);
+    letter-spacing: 1px;
+    filter: brightness(1.1) contrast(1.2);
+}
+
+.hero-address {
+    font-size: 1.1rem;
+    color: var(--gold-primary);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.4);
+    font-weight: 500;
+    filter: brightness(1.1) contrast(1.2);
+}
+
+.hero-instagram {
+    margin-top: 0.5rem;
+}
+
+.hero-instagram a {
+    color: var(--gold-primary);
+    text-decoration: none;
+    font-size: 1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.4);
+    transition: all 0.3s ease;
+}
+
+.hero-instagram a:hover {
+    color: var(--gold-light);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 20px rgba(244, 208, 63, 0.9), 0 0 30px rgba(244, 208, 63, 0.5);
+    text-decoration: underline;
+}
+
+/* Section Layouts */
+.menu-section {
+    padding: var(--section-padding);
+    background: var(--teal-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.menu-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        /* Bamboo-inspired pattern from restaurant photos */
+        linear-gradient(90deg, transparent 0%, transparent 45%, var(--teal-primary) 45%, var(--teal-primary) 47%, transparent 47%),
+        linear-gradient(0deg, transparent 0%, transparent 45%, var(--teal-primary) 45%, var(--teal-primary) 47%, transparent 47%);
+    background-size: 60px 60px, 60px 60px;
+    opacity: 0.12;
+    animation: patternFloat 30s ease-in-out infinite;
+}
+
+.about-section {
+    padding: var(--section-padding);
+    background: var(--teal-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        /* Umbrella-inspired patterns from restaurant photos */
+        radial-gradient(ellipse at 20% 30%, var(--orange-primary) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 70%, var(--gold-primary) 0%, transparent 50%),
+        /* Geometric patterns inspired by vintage ads */
+        linear-gradient(30deg, transparent 0%, transparent 48%, var(--teal-primary) 48%, var(--teal-primary) 52%, transparent 52%),
+        linear-gradient(-30deg, transparent 0%, transparent 48%, var(--teal-primary) 48%, var(--teal-primary) 52%, transparent 52%);
+    background-size: 200px 200px, 200px 200px, 120px 120px, 120px 120px;
+    opacity: 0.02;
+    animation: patternFloat 35s ease-in-out infinite;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 0;
+}
+
+.about-text p {
+    font-family: var(--font-body);
+    margin-bottom: 1.5rem;
+    color: var(--white);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+.about-images {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    position: relative;
+    margin-top: -2rem;
+}
+
+.sisters-photo {
+    width: 350px;
+    height: 260px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.sisters-photo:hover {
+    transform: scale(1.05);
+}
+
+.top-photo {
+    align-self: flex-start;
+    margin-top: 0;
+}
+
+.bottom-photo {
+    align-self: flex-end;
+    margin-left: 2rem;
+}
+
+.third-photo {
+    align-self: flex-start;
+    margin-left: 0;
+}
+
+.third-photo .sisters-image {
+    object-position: center top;
+}
+
+.sisters-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.gallery-section {
+    padding: var(--section-padding);
+    background: var(--teal-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        /* Traditional Indian border pattern */
+        linear-gradient(90deg, transparent 0%, transparent 48%, var(--teal-primary) 48%, var(--teal-primary) 52%, transparent 52%),
+        linear-gradient(0deg, transparent 0%, transparent 48%, var(--teal-primary) 48%, var(--teal-primary) 52%, transparent 52%);
+    background-size: 80px 80px, 80px 80px;
+    opacity: 0.15;
+    animation: patternFloat 50s ease-in-out infinite;
+}
+
+.hours-section {
+    padding: 30px 0 50px 0;
+    background: var(--teal-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.hours-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        /* Chevron pattern inspired by restaurant chairs */
+        linear-gradient(45deg, transparent 0%, transparent 40%, var(--teal-primary) 40%, var(--teal-primary) 42%, transparent 42%),
+        linear-gradient(-45deg, transparent 0%, transparent 40%, var(--orange-primary) 40%, var(--orange-primary) 42%, transparent 42%),
+    background-size: 100px 100px, 100px 100px;
+    opacity: 0.025;
+    animation: patternFloat 40s ease-in-out infinite;
+}
+
+.contact-section {
+    padding: var(--section-padding);
+    background: var(--teal-primary);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        /* Traditional Indian border pattern */
+        linear-gradient(90deg, transparent 0%, transparent 48%, var(--teal-primary) 48%, var(--teal-primary) 52%, transparent 52%),
+        linear-gradient(0deg, transparent 0%, transparent 48%, var(--teal-primary) 48%, var(--teal-primary) 52%, transparent 52%),
+        /* Bindi-inspired decorative elements */
+        radial-gradient(circle at 50% 50%, var(--orange-light) 4px, transparent 4px);
+    background-size: 80px 80px, 80px 80px, 200px 200px;
+    opacity: 0.12;
+    animation: patternFloat 45s ease-in-out infinite;
+}

@@ -1,0 +1,47 @@
+{
+  "name": "tera-mera-website",
+  "version": "1.0.0",
+  "description": "A beautiful, responsive website for Tera Mera - an elevated Bombay street snacks restaurant in Brooklyn",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx http-server -p 3000 -o",
+    "dev": "npx live-server --port=3000 --open=/",
+    "build": "npm run minify-css && npm run minify-js",
+    "minify-css": "npx clean-css-cli -o assets/css/main.min.css assets/css/main.css",
+    "minify-js": "npx terser assets/js/main.js assets/js/navigation.js assets/js/animations.js assets/js/utils.js -o assets/js/main.min.js",
+    "lint": "npx eslint assets/js/*.js",
+    "format": "npx prettier --write assets/css/*.css assets/js/*.js index.html"
+  },
+  "keywords": [
+    "restaurant",
+    "website",
+    "brooklyn",
+    "indian-food",
+    "bombay",
+    "responsive",
+    "modern"
+  ],
+  "author": "Tera Mera Restaurant",
+  "license": "MIT",
+  "devDependencies": {
+    "clean-css-cli": "^5.6.2",
+    "eslint": "^8.57.0",
+    "http-server": "^14.1.1",
+    "live-server": "^1.2.2",
+    "prettier": "^3.2.5",
+    "terser": "^5.24.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tera-mera/website.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tera-mera/website/issues"
+  },
+  "homepage": "https://github.com/tera-mera/website#readme",
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}

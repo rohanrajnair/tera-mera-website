@@ -1,0 +1,95 @@
+/* Base Styles and CSS Variables */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color Palette - Inspired by Tera Mera's branding */
+    --teal-primary: #00936E;
+    --teal-dark: #007a5a;
+    --teal-light: #00ac82;
+    --gold-primary: #d4af37;
+    --gold-light: #f4d03f;
+    --orange-primary: #ff6b35;
+    --orange-light: #ff8c42;
+    --orange-dark: #e55a2b;
+    --cream: #fdf6e3;
+    --white: #ffffff;
+    --black: #1a1a1a;
+    --gray-light: #f8f9fa;
+    --gray: #6c757d;
+    
+    /* Typography */
+    --font-heading: 'Playfair Display', serif;
+    --font-body: 'Libre Baskerville', serif;
+    --font-brand: 'Cormorant Garamond', serif;
+    --font-bollywood: 'EB Garamond', serif;
+    
+    /* Spacing */
+    --section-padding: 50px 0;
+    --container-padding: 0 20px;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.7;
+    color: var(--white);
+    background-color: var(--teal-primary);
+    overflow-x: hidden;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--container-padding);
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--gray-light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--teal-primary);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--teal-dark);
+}
