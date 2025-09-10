@@ -22,15 +22,20 @@ class Navigation {
         if (!this.hamburger || !this.navMenu) return;
 
         this.hamburger.addEventListener('click', () => {
-            this.hamburger.classList.toggle('active');
+            this.hamburger.classList.toggle('open');
             this.navMenu.classList.toggle('active');
+
+            // Accessibility: toggle aria-expanded
+            const expanded = this.hamburger.classList.contains('open');
+            this.hamburger.setAttribute('aria-expanded', expanded);
         });
 
         // Close mobile menu when clicking on a link
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
-                this.hamburger.classList.remove('active');
+                this.hamburger.classList.remove('open');
                 this.navMenu.classList.remove('active');
+                this.hamburger.setAttribute('aria-expanded', false);
             });
         });
     }
@@ -56,10 +61,12 @@ class Navigation {
 
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
-                this.navbar.style.background = 'rgba(255, 255, 255, 0.98)';
-                this.navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+                // Slightly transparent teal with shadow
+                this.navbar.style.background = 'rgba(0, 128, 128, 0.95)';
+                this.navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.15)';
             } else {
-                this.navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                // Solid teal at the top
+                this.navbar.style.background = 'var(--teal-primary)';
                 this.navbar.style.boxShadow = 'none';
             }
         });
@@ -70,8 +77,9 @@ class Navigation {
             if (e.key === 'Escape') {
                 // Close mobile menu if open
                 if (this.hamburger && this.navMenu) {
-                    this.hamburger.classList.remove('active');
+                    this.hamburger.classList.remove('open');
                     this.navMenu.classList.remove('active');
+                    this.hamburger.setAttribute('aria-expanded', false);
                 }
             }
         });

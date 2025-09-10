@@ -39,14 +39,16 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    margin-top: 10px;
+    margin-bottom: 18px;
 }
 
 .nav-logo-image {
-    height: 120px;
+    height: 70px;
     width: auto;
     filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5)) brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(638%) hue-rotate(359deg) brightness(103%) contrast(107%);
     transition: transform 0.3s ease;
-    margin: -1rem 0;
+    /* margin: -1rem 0; */
 }
 
 .nav-logo-image:hover {
@@ -61,8 +63,10 @@
 
 .nav-menu a {
     text-decoration: none;
-    color: var(--white);
-    font-weight: 500;
+    color: var(--cream);
+    font-family: var(--font-heading);
+    font-weight: 300;
+    font-size: 1.7rem;
     transition: color 0.3s ease;
     position: relative;
 }
@@ -131,7 +135,21 @@
     transform: translateX(-50%);
     width: 120px;
     height: 120px;
-    background: url('../images/house_motif.png') no-repeat center;
+    background: url('../images/house_motif2.png') no-repeat center;
+    background-size: contain;
+    opacity: 0.6;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.house-motif-bg-light{
+    position: absolute;
+    top: -120px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+    background: url('../images/house_motif_light\ 1.png') no-repeat center;
     background-size: contain;
     opacity: 0.6;
     z-index: 10;
@@ -140,7 +158,17 @@
 
 .section-header h2 {
     font-family: var(--font-brand);
-    color: var(--white);
+    letter-spacing: 0.05em;
+    color: var(--cream);
+    margin-bottom: 0.5rem;
+    position: relative;
+    z-index: 20;
+}
+
+.gallery-section .section-header h2,  .hours-section .section-header h2{
+    font-family: var(--font-brand);
+    letter-spacing: 0.05em;
+    color: var(--orange-dark);
     margin-bottom: 0.5rem;
     position: relative;
     z-index: 20;
@@ -214,7 +242,7 @@
 
 .gallery-item {
     position: relative;
-    border-radius: 15px;
+    /* border-radius: 15px; */
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -222,6 +250,7 @@
 
 .gallery-item:hover {
     transform: translateY(-2px);
+    transform: scale(1.05);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 }
 
@@ -240,9 +269,6 @@
     transition: transform 0.3s ease;
 }
 
-.gallery-item.large .gallery-image {
-    height: 100%;
-}
 
 .gallery-item:hover .gallery-image {
     transform: scale(1.02);
@@ -261,7 +287,11 @@
 }
 
 .gallery-image.patio-bamboo {
-    background-image: url('../images/patio-bamboo.jpg');
+    background-image: url('../images/bamboo.jpg');
+}
+
+.gallery-image.bamboo {
+    background-image: url('../images/bamboo.jpg');
 }
 
 .gallery-image.exterior-evening {
@@ -269,8 +299,65 @@
 }
 
 .gallery-image.patio-seating {
-    background-image: url('../images/patio-seating.jpg');
+    background-image: url('../images/events.png');
 }
+.gallery-image.interior-cafe {
+    background-image: url('../images/interior-cafe.png');
+}
+.gallery-image.market {
+    background-image: url('../images/market.jpg');
+}
+.gallery-image.food-photo {
+    background-image: url('../images/foodPhoto.jpg');
+}
+/* Updated Gallery Styling  *//* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 20px;
+}
+
+/* Each gallery item controls proportions */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3; /* keeps consistent tile shape */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Larger featured tile */
+.gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: 16/9;
+}
+
+/* Image always fills */
+.gallery-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;    /* always fills, crops if needed */
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease;
+}
+
+/* Hover effect */
+.gallery-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.05);
+}
+
+
 
 /* Contact Section - Minimal */
 .contact-minimal {
@@ -317,13 +404,25 @@
     opacity: 1;
 }
 
+.gallery-item .overlay-content h3,
+.gallery-item .overlay-content p {
+    display: block;
+    color: #fff; /* ensure contrast */
+    margin: 0;
+}
+
 .gallery-item .overlay-content h3 {
-    display: none;
+    font-family: var(--font-body);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
 }
 
 .gallery-item .overlay-content p {
-    display: none;
+    font-size: 1rem;
+    opacity: 0.9;
 }
+
 
 /* Contact Components */
 .contact-simple {
@@ -394,15 +493,15 @@
 }
 
 .hours-main h3 {
-    color: var(--gold-primary);
-    font-size: 1.5rem;
+    color: var(--teal-primary);
+    font-size: 1.8rem;
     margin-bottom: 0.5rem;
     font-weight: 600;
 }
 
 .hours-main p {
-    color: var(--white);
-    font-size: 1.3rem;
+    color: var(--teal-dark);
+    font-size: 1rem;
     font-weight: 500;
     margin: 0;
 }
@@ -412,7 +511,7 @@
 }
 
 .hours-closed p {
-    color: var(--white);
+    color: var(--teal-dark);
     font-size: 1.1rem;
     opacity: 0.8;
     margin: 0;
@@ -441,4 +540,239 @@
     font-style: italic;
     margin-top: 0.5rem !important;
     font-weight: 400 !important;
+}
+
+/* Updated Nav Bar and Hero Components */
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: var(--teal-primary) !important;
+    z-index: 1000;
+    padding: 0.8rem 0;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Hide hamburger on desktop */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 1100;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: var(--white);
+    border-radius: 2px;
+}
+
+/* Desktop menu */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none; /* hidden by default */
+        flex-direction: column;
+        background: var(--teal-primary);
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 100%;
+        text-align: center;
+        padding: 1rem 0;
+    }
+/* 
+    .nav-menu.active {
+        display: flex; 
+    } */
+
+    .hamburger {
+        display: none; /* show on mobile */
+    }
+
+    .nav-menu li {
+        margin: 0.5rem 0;
+    }
+
+    .nav-menu a {
+        font-size: 1.2rem;
+    }
+}
+
+
+.navbar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20px;
+    background: url('../images/single_flower_pattern.png') repeat-x;
+    background-size: auto 100%;
+    background-position: 0 center;
+    opacity: 0.7;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--container-padding);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Hero / Section Responsiveness */
+.menu-panels {
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    gap: 0;
+    margin-top: 100px; /* add top margin so content isn't hidden behind navbar */
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menu-panel {
+    flex: 1 1 50%; /* default two-column layout */
+    min-width: 300px;
+    height: 350px;
+}
+
+.menu-panel-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+    .nav-menu {
+        display: none; /* hide nav links */
+    }
+
+    .hamburger {
+        display: none; /* show hamburger menu */
+    }
+
+    .menu-panels {
+        flex-direction: column;
+    }
+
+    .menu-panel {
+        flex: 1 1 100%;
+        height: 250px;
+    }
+}
+
+@media (max-width: 600px) {
+    .nav-logo-image {
+        height: 80px;
+    }
+
+    .section-header h2 {
+        font-size: 1.5rem;
+    }
+
+    .section-header p {
+        font-size: 1rem;
+    }
+
+}
+/* Hero Panels Base */
+.hero-panels {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    height: 100vh; /* optional: makes hero full screen */
+    overflow: hidden;
+}
+
+.hero-panel {
+    flex: 1 1 33.33%;
+    padding: 0;
+}
+
+.hero-panel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+
+/* Updated gallery styling  */
+/* Gallery Grid */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 20px;
+}
+
+/* Each gallery item controls proportions */
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 4/3; /* keeps consistent tile shape */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Larger featured tile */
+.gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+    aspect-ratio: 16/9;
+}
+
+
+
+/* Image always fills */
+.gallery-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;    /* always fills, crops if needed */
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: transform 0.4s ease;
+}
+
+/* Hover effect */
+.gallery-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.05);
+}
+
+.gallery-item.large .gallery-image {
+    height: 100%;
 }

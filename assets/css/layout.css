@@ -65,8 +65,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.1) 100%);
-    z-index: 2;
+    background: rgba(1, 29, 43, 0.45); /* dark teal overlay */
+    mix-blend-mode: multiply; /* blends into images */
+    z-index: 2; /* above images, below content */
+    pointer-events: none; /* overlay won't block clicks */
 }
 
 .hero-background {
@@ -98,7 +100,7 @@
     color: var(--white);
     z-index: 4;
     position: relative;
-    padding-bottom: 80px;
+    /* padding-bottom: 80px; */
     margin-top: -40px;
 }
 
@@ -112,10 +114,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
+
+    /* Drop shadow */
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.8));
 }
 
+
 .logo-svg {
-    width: 400px;
+    width: 600px;
     height: auto;
     max-width: 100%;
     filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.5)) brightness(0) saturate(100%) invert(77%) sepia(29%) saturate(638%) hue-rotate(359deg) brightness(103%) contrast(107%);
@@ -151,18 +157,28 @@
 
 .hero-address {
     font-size: 1.1rem;
-    color: var(--gold-primary);
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.4);
+    color: var(--cream);
     font-weight: 500;
-    filter: brightness(1.1) contrast(1.2);
+
+    
+    background: rgba(11, 44, 56, 0.1); 
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    display: inline-block; 
+    padding: 0.9rem 0.8rem; 
+    border-radius: 6px; 
+    margin-top:100px;
 }
+
+
 
 .hero-instagram {
     margin-top: 0.5rem;
 }
 
 .hero-instagram a {
-    color: var(--gold-primary);
+    color: var(--cream);
     text-decoration: none;
     font-size: 1rem;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8), 0 0 15px rgba(212, 175, 55, 0.8), 0 0 25px rgba(212, 175, 55, 0.4);
@@ -291,7 +307,7 @@
 
 .gallery-section {
     padding: var(--section-padding);
-    background: var(--teal-primary);
+    background: var(--cream);
     position: relative;
     overflow: hidden;
 }
@@ -303,10 +319,7 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: 
-        /* Traditional Indian border pattern */
-        linear-gradient(90deg, transparent 0%, transparent 48%, var(--teal-primary) 48%, var(--teal-primary) 52%, transparent 52%),
-        linear-gradient(0deg, transparent 0%, transparent 48%, var(--teal-primary) 48%, var(--teal-primary) 52%, transparent 52%);
+    /*  */
     background-size: 80px 80px, 80px 80px;
     opacity: 0.15;
     animation: patternFloat 50s ease-in-out infinite;
@@ -314,7 +327,7 @@
 
 .hours-section {
     padding: 30px 0 50px 0;
-    background: var(--teal-primary);
+    background: var(--cream);
     position: relative;
     overflow: hidden;
 }

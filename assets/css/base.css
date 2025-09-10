@@ -4,10 +4,30 @@
     padding: 0;
     box-sizing: border-box;
 }
+.jaini-regular {
+  font-family: "Jaini", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0.6rem;
+}
 
 :root {
     /* Color Palette - Inspired by Tera Mera's branding */
-    --teal-primary: #00936E;
+    --teal-primary: #008793;
+    --teal-dark: #003e53;
+    --teal-light: #51d1e2;
+    --teal-pale:#bae4e9;
+    --gold-primary: #dbae1e;
+    --gold-light: #f4d03f;
+    --orange-primary: #ff6b35;
+    --orange-light: #ff8c42;
+    --orange-dark: #812303;
+    --cream: #fdf6e3;
+    --white: #ffffff;
+    --black: #1a1a1a;
+    --gray-light: #f8f9fa;
+    --gray: #6c757d;
+    /* --teal-primary: #00936E;
     --teal-dark: #007a5a;
     --teal-light: #00ac82;
     --gold-primary: #d4af37;
@@ -19,18 +39,19 @@
     --white: #ffffff;
     --black: #1a1a1a;
     --gray-light: #f8f9fa;
-    --gray: #6c757d;
+    --gray: #6c757d; */
     
     /* Typography */
-    --font-heading: 'Playfair Display', serif;
+    --font-heading:"Jaini", system-ui;
     --font-body: 'Libre Baskerville', serif;
-    --font-brand: 'Cormorant Garamond', serif;
-    --font-bollywood: 'EB Garamond', serif;
+    --font-brand: "Jaini", system-ui;
+    --font-bollywood: "Jaini", system-ui;
     
     /* Spacing */
     --section-padding: 50px 0;
     --container-padding: 0 20px;
 }
+
 
 body {
     font-family: var(--font-body);
@@ -54,20 +75,21 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     font-weight: 700;
     line-height: 1.2;
+
 }
 
 h1 {
-    font-size: 3.5rem;
+    font-size: 7.5rem;
     font-weight: 900;
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: 3.5rem;
     margin-bottom: 1rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 4.5rem;
     margin-bottom: 0.5rem;
 }
 
