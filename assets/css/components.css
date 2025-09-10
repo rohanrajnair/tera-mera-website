@@ -506,6 +506,13 @@
     margin: 0;
 }
 
+.contact-main p {
+    color: var(--cream);
+    font-size: 1rem;
+    font-weight: 500;
+    margin: 0;
+}
+
 .hours-closed {
     margin-bottom: 2rem;
 }
@@ -692,7 +699,7 @@
     }
 
     .section-header h2 {
-        font-size: 1.5rem;
+        font-size: 3rem;
     }
 
     .section-header p {
