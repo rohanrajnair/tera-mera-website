@@ -72,7 +72,7 @@
 }
 
 .nav-menu a:hover {
-    color: var(--teal-primary);
+    color: var(--gold-light);
 }
 
 .nav-menu a::after {
